@@ -83,3 +83,15 @@ if ! pkg_installed flatpak; then
 else
     print_log -y "[FLATPAK]" -b " :: " "flatpak is already installed"
 fi
+
+# --------------------------------------------------- // Install opencode CLI
+if ! command -v opencode &>/dev/null; then
+    print_log -g "[opencode]" -b " :: " "Installing opencode CLI..."
+    if curl -fsSL https://opencode.ai/install | bash; then
+        print_log -g "[opencode]" -b " :: " "opencode CLI installed successfully"
+    else
+        print_log -warn "[opencode]" "Failed to install opencode CLI. You can install it manually with: curl -fsSL https://opencode.ai/install | bash"
+    fi
+else
+    print_log -g "[opencode]" -b " :: " "opencode CLI already installed"
+fi
