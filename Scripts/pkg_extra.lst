@@ -31,7 +31,20 @@ spotify                                                # proprietary music strea
 spicetify-cli                                          # cli to customize spotify client
 
 # --------------------------------------------------- // Apps
-# neovim                                               # vim based text editor
+
+# --------------------------------------------------- // Terminal Tools
+neovim                                                 # vim based text editor
+tmux                                                   # terminal multiplexer
+sesh                                                   # tmux session manager
+gum                                                    # glamorous shell scripts
+fzf|tmux                                               # fuzzy finder for tmux
+
+# --------------------------------------------------- // TUI Applications
+posting                                                # HTTP client TUI
+rainfrog                                               # database management TUI for Postgres
+
+# --------------------------------------------------- // Browser
+zen-browser-bin                                        # privacy-focused Firefox-based browser
 
 # --------------------------------------------------- // Shell
 # --------------------------------------------------- // zsh

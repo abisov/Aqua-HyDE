@@ -106,6 +106,16 @@ P|${HOME}/.config/vim|vimrc|vim
 S|${HOME}/.config/vim/colors|wallbash.vim|vim
 S|${HOME}/.config/vim|hyde.vim|vim
 
+ Neovim 
+P|${HOME}/.config|nvim|neovim
+
+ Tmux 
+P|${HOME}/.config/tmux|tmux.conf|tmux
+S|${HOME}/.config/tmux|plugins|tmux
+
+ Posting 
+P|${HOME}/.config/posting|config.yaml|posting
+
  File Explorer 
 P|${HOME}/.local/state|dolphinstaterc|dolphin
 P|${HOME}/.config|baloofilerc|dolphin
