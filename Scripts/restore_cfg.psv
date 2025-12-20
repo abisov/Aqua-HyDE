@@ -88,7 +88,8 @@ P|${HOME}/.config/fish|config.fish|fish
 
 S|${HOME}|.zshenv|zsh
 S|${HOME}/.config/zsh|.zshenv|zsh
-S|${HOME}/.config/zsh/conf.d|hyde 00-hyde.zsh|zsh
+S|${HOME}/.config/zsh/conf.d|hyde 00-hyde.zsh binds.zsh|zsh
+S|${HOME}/.config/zsh/conf.d|fnm.zsh|zsh fnm
 S|${HOME}/.config/zsh/functions|error-handlers.zsh|zsh 
 S|${HOME}/.config/zsh/functions|fzf.zsh|zsh fzf
 S|${HOME}/.config/zsh/functions|duf.zsh|zsh duf

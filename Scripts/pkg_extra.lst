@@ -70,6 +70,9 @@ duf|fish                                                 # prettier version of d
 # --------------------------------------------------- // Backends
 #electron                                              # electron backend
 
+# --------------------------------------------------- // Node.js
+fnm                                                    # Fast Node.js version manager (Rust-based)
+
 # --------------------------------------------------- // Lockscreen
 #swaylock-effects-git                                   # swaylock with effects // very minimal lockscreen
 
