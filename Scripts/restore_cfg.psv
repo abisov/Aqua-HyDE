@@ -109,7 +109,7 @@ S|${HOME}/.config/vim/colors|wallbash.vim|vim
 S|${HOME}/.config/vim|hyde.vim|vim
 
  Neovim 
-P|${HOME}/.config|nvim|neovim
+I|${HOME}/.config|nvim|neovim
 
  Tmux 
 P|${HOME}/.config/tmux|tmux.conf|tmux

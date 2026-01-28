@@ -109,6 +109,19 @@ View installation instructions for HyDE in [Hyde-cli - Usage](https://github.com
 Please reboot after the install script completes and takes you to the SDDM login screen (or black screen) for the first time.
 For more details, please refer to the [installation wiki](https://github.com/HyDE-Project/HyDE/wiki/installation).
 
+### Custom Neovim Configuration
+
+HyDE does not install a Neovim configuration by default. To use a custom nvim setup:
+
+```bash
+# Clone your preferred nvim config
+# Example: aqua-vim
+rm -rf ~/.config/nvim
+git clone --depth 1 https://github.com/abisov/aqua-vim.git ~/.config/nvim
+```
+
+Or use any other nvim config repository of your choice.
+
 <div align="right">
   <br>
   <a href="#-design-by-t2"><kbd> <br> 🡅 <br> </kbd></a>
