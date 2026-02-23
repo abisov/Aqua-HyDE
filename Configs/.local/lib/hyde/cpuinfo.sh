@@ -159,6 +159,23 @@ fi
 utilization=$(get_utilization)
 frequency=$(perl -ne 'BEGIN { $sum = 0; $count = 0 } if (/cpu MHz\s+:\s+([\d.]+)/) { $sum += $1; $count++ } END { if ($count > 0) { printf "%.2f\n", $sum / $count } else { print "NaN\n" } }' /proc/cpuinfo)
 
+# Numeric classes and percentage for Waybar formatting
+temp_val=${temperature%%.*}
+((temp_val < 0)) && temp_val=0
+((temp_val > 999)) && temp_val=999
+temp_bucket=$(((temp_val / 5) * 5))
+((temp_bucket > 100)) && temp_bucket=100
+temp_class="temp-$temp_bucket"
+
+util_val=${utilization%.*}
+((${util_val:-0} < 0)) && util_val=0
+((${util_val:-0} > 100)) && util_val=100
+util_bucket=$(((util_val / 10) * 10))
+util_class="util-$util_bucket"
+
+temp_pct=$temp_val
+((temp_pct > 100)) && temp_pct=100
+
 # Generate glyphs
 icons="$(map_floor "$util_lv" "$utilization")$(map_floor "$temp_lv" "$temperature")"
 speedo="${icons:0:1}"
@@ -169,9 +186,9 @@ emoji="${icons:2}"
 tooltip_str="$emoji $CPUINFO_MODEL\n"
 [[ -n "$thermo" ]] && tooltip_str+="$thermo Temperature: \n\t$cpu_temps \n"
 [[ -n "$speedo" ]] && tooltip_str+="$speedo Utilization: $utilization%\n"
-tooltip_str+=" Clock Speed: $frequency/$CPUINFO_MAX_FREQ MHz"
+tooltip_str+=" Clock Speed: $frequency/$CPUINFO_MAX_FREQ MHz"
 
 # Print the output
 cat <<JSON
-{"text":"$thermo $(get_temp_color "${temperature}")", "tooltip":"$tooltip_str"}
+{"text":"$thermo $(get_temp_color "${temperature}")", "tooltip":"$tooltip_str", "class":["$temp_class","$util_class"], "percentage":$temp_pct, "alt":"$temp_bucket"}
 JSON

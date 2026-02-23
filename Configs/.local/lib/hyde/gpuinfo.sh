@@ -225,6 +225,23 @@ generate_json() {
   emoji=${icons:2}
   temp_color=$(get_temp_color "${temperature}")
 
+  # Compute classes and percentage (5°C buckets for temp, 10% for util)
+  local temp_val=${temperature%%.*}
+  ((temp_val < 0)) && temp_val=0
+  ((temp_val > 999)) && temp_val=999
+  local temp_bucket=$(((temp_val / 5) * 5))
+  ((temp_bucket > 100)) && temp_bucket=100
+  local temp_class="temp-$temp_bucket"
+
+  local util_val=${utilization%.*}
+  ((${util_val:-0} < 0)) && util_val=0
+  ((${util_val:-0} > 100)) && util_val=100
+  local util_bucket=$(((util_val / 10) * 10))
+  local util_class="util-$util_bucket"
+
+  local temp_pct=$temp_val
+  ((temp_pct > 100)) && temp_pct=100
+
   # Create the JSON string with colored temperature
   local json="{\"text\":\"${thermo} ${temp_color}\", \"tooltip\":\"${emoji} ${primary_gpu}\n${thermo} Temperature: ${temp_color}"
 

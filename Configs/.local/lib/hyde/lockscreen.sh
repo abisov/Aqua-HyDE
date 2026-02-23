@@ -2,8 +2,8 @@
 
 [[ "${HYDE_SHELL_INIT}" -ne 1 ]] && eval "$(hyde-shell init)"
 
-lockscreen="${HYPRLAND_LOCKSCREEN:-$lockscreen}"
-lockscreen="${LOCKSCREEN:-hyprlock}"
+lockscreen="${HYPRLAND_LOCKSCREEN:-hyprlock}"
+lockscreen="${LOCKSCREEN:-$lockscreen}"
 lockscreen="${HYDE_LOCKSCREEN:-$lockscreen}"
 
 case ${1} in
