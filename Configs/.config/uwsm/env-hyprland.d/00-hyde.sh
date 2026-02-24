@@ -13,12 +13,12 @@ ELECTRON_OZONE_PLATFORM_HINT="${ELECTRON_OZONE_PLATFORM_HINT:-auto}" # Set Elect
 
 # HyDEs Compositor Configuration
 HYPRLAND_CONFIG="${XDG_DATA_HOME:-$HOME/.local/share}/hypr/hyprland.conf"
-HYPRLAND_NO_SD_NOTIFY=1 # If systemd, disables the sd_notify calls.
-HYPRLAND_NO_SD_VARS=1   # Disables management of variables in systemd and dbus activation environments.
+# HYPRLAND_NO_SD_NOTIFY=1 # If systemd, disables the sd_notify calls.  # DISABLED: breaks uwsm >=0.26.4 autoready — it polls for WAYLAND_DISPLAY/HYPRLAND_INSTANCE_SIGNATURE and times out after 30s
+# HYPRLAND_NO_SD_VARS=1   # Disables management of variables in systemd and dbus activation environments.  # DISABLED: uwsm needs WAYLAND_DISPLAY exported to systemd activation env
 
 export ELECTRON_OZONE_PLATFORM_HINT GDK_SCALE MOZ_ENABLE_WAYLAND QT_QPA_PLATFORMTHEME \
     QT_WAYLAND_DISABLE_WINDOWDECORATION QT_QPA_PLATFORM QT_AUTO_SCREEN_SCALE_FACTOR \
-    HYPRLAND_NO_SD_NOTIFY HYPRLAND_NO_SD_VARS HYPRLAND_CONFIG
+    HYPRLAND_CONFIG
 
 # TODO Set this if some toolkit are not working properly. // To set create a 'toolkit.sh' file in the 'env-hyprland.d' folder. and add the following line to it:
 #? Toolkit Backend Variables - https://wiki.hyprland.org/Configuring/Environment-variables/#toolkit-backend-variables
